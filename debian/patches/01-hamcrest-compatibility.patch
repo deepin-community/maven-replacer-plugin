@@ -1,0 +1,14 @@
+Description: Fixes the compatibility with the version of Hamcrest in Debian
+Author: Emmanuel Bourg <ebourg@apache.org>
+Forwarded: no
+--- a/src/test/java/com/google/code/maven_replacer_plugin/file/FileUtilsTest.java
++++ b/src/test/java/com/google/code/maven_replacer_plugin/file/FileUtilsTest.java
+@@ -5,7 +5,7 @@
+ import static org.hamcrest.MatcherAssert.assertThat;
+ import static org.hamcrest.Matchers.equalTo;
+ import static org.hamcrest.Matchers.not;
+-import static org.hamcrest.text.StringStartsWith.startsWith;
++import static org.hamcrest.core.StringStartsWith.startsWith;
+ import static org.junit.Assert.assertFalse;
+ import static org.junit.Assert.assertTrue;
+ import static org.junit.Assert.fail;

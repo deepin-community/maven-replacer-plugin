@@ -1,0 +1,4 @@
+
+junit junit * s/.*/4.x/ * *
+s/ant/org.apache.ant/ * * s/.*/debian/ * *
+org.apache.maven maven-plugin-api * s/.*/3.x/ * *

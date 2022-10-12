@@ -1,0 +1,4 @@
+
+org.apache.maven.plugins maven-pmd-plugin * * * *
+org.apache.maven.plugins maven-release-plugin * * * *
+org.codehaus.mojo dashboard-maven-plugin * * * *

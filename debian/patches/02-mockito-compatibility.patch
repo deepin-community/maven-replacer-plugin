@@ -1,0 +1,31 @@
+Description: Fixes the compatibility with the version of Mockito in Debian
+Author: Emmanuel Bourg <ebourg@apache.org>
+Forwarded: no
+--- a/src/test/java/com/google/code/maven_replacer_plugin/ReplacerMojoTest.java
++++ b/src/test/java/com/google/code/maven_replacer_plugin/ReplacerMojoTest.java
+@@ -11,6 +11,7 @@
+ import static org.mockito.Matchers.anyString;
+ import static org.mockito.Matchers.argThat;
+ import static org.mockito.Matchers.eq;
++import static org.mockito.Matchers.nullable;
+ import static org.mockito.Matchers.isA;
+ import static org.mockito.Mockito.mock;
+ import static org.mockito.Mockito.never;
+@@ -428,7 +429,7 @@
+ 
+ 	@Test (expected = MojoExecutionException.class)
+ 	public void shouldRethrowIOExceptionsAsMojoExceptions() throws Exception {
+-		when(fileUtils.readFile(anyString(), anyString())).thenThrow(new IOException());
++		when(fileUtils.readFile(nullable(String.class), nullable(String.class))).thenThrow(new IOException());
+ 
+ 		mojo.setRegexFlags(regexFlags);
+ 		mojo.setRegex(REGEX);
+@@ -442,7 +443,7 @@
+ 	
+ 	@Test
+ 	public void shouldNotThrowExceptionWhenIgnoringErrors() throws Exception {
+-		when(fileUtils.readFile(anyString(), anyString())).thenThrow(new IOException());
++		when(fileUtils.readFile(nullable(String.class), nullable(String.class))).thenThrow(new IOException());
+ 
+ 		mojo.setIgnoreErrors(true);
+ 		mojo.setFile(FILE);

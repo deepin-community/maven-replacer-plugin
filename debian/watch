@@ -1,0 +1,4 @@
+version=3
+opts="uversionmangle=s/-(alpha|beta)-/~$1/" \
+  http://maven-replacer-plugin.googlecode.com/svn/tags/ \
+  replacer-(\d.*)/ debian debian/orig-tar.sh
